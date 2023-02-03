@@ -19,7 +19,7 @@ public class Categoria {
     @Size(min = 5, max = 100, message = "O atributo descrição, no mínimo 5 e no máximo 100.")
     private String descricao;
 
-    @OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)//?????????????????
+    @OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)//???????????????
     @JsonIgnoreProperties("categoria")
     private List<Produto> produto;
 
