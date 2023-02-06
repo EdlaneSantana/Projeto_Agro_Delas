@@ -44,7 +44,7 @@ public class ProdutoController {
     //buscar por volume
     @GetMapping("/volume/{volume}")
     public ResponseEntity<List<Produto>> getByVolume(@PathVariable double volume) {
-        return ResponseEntity.ok(produtoRepository.findAllByVolume());
+        return ResponseEntity.ok(produtoRepository.findAllByVolume(volume));
     }
 
     //buscar por valores menores que (peso, volume, valor)
