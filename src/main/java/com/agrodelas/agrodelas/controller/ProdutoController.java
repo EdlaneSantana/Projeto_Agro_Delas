@@ -50,6 +50,7 @@ public class ProdutoController {
     //buscar por valores menores que (peso, volume, valor)
     //buscar por valores maiores que (peso, volume, valor)
 
+    //prioridades
     //buscar por quantidade
     //retorna produto por id
     //post
