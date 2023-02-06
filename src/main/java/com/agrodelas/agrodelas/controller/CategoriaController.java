@@ -19,7 +19,7 @@ public class CategoriaController {
     @Autowired
     private CategoriaRepository categoriaRepository;
 
-    //consultar por descrição,
+    //consultar por descrição
     @GetMapping("/descricao/{descricao}")
     public ResponseEntity<List<Categoria>> getByTitle(@PathVariable String descricao) {
         return ResponseEntity.ok(categoriaRepository.findAllByDescricaoContainingIgnoreCase(descricao));

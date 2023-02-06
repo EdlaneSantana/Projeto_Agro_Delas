@@ -2,8 +2,10 @@ package com.agrodelas.agrodelas.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Null;
 
 @Entity
 @Table(name = "tb_produto")
@@ -16,8 +18,10 @@ public class Produto {
     @NotBlank(message = "O Atributo Nome é obrigatório")
     private String nome;
 
+    @Nullable
     private double peso;
 
+    @Nullable
     private int volume;
 
     @NotBlank(message = "O Atributo quantidade é obrigatório")
