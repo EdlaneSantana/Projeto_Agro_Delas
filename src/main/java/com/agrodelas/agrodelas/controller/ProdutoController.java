@@ -2,11 +2,15 @@ package com.agrodelas.agrodelas.controller;
 
 import com.agrodelas.agrodelas.model.Produto;
 import com.agrodelas.agrodelas.repository.ProdutoRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/produtos")
@@ -46,14 +50,51 @@ public class ProdutoController {
     public ResponseEntity<List<Produto>> getByVolume(@PathVariable double volume) {
         return ResponseEntity.ok(produtoRepository.findAllByVolume(volume));
     }
+    //buscar por quantidade
+    @GetMapping("/quantidade/{quantidade}")
+    public ResponseEntity<List<Produto>> getByQuantidade(@PathVariable int quantidade) {
+        return ResponseEntity.ok(produtoRepository.findAllByQuantidade(quantidade));
+    }
+    //retorna produto por id
+    @GetMapping("/{id}")
+    public ResponseEntity<Produto> getById(@PathVariable Long id) {
+        return produtoRepository.findById(id)
+                .map(resposta -> ResponseEntity.ok(resposta))
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+
+    }
+    //post
+    @PostMapping
+    public ResponseEntity<Produto> post(@Valid @RequestBody Produto produto) {
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(produtoRepository.save(produto));
+    }
+    //put
+    @PutMapping
+    public ResponseEntity<Produto> put(@Valid @RequestBody Produto produto) {
+        return produtoRepository.findById(produto.getId())
+                .map(resposta -> ResponseEntity.status(HttpStatus.OK)
+                        .body(produtoRepository.save(produto)))
+                .orElse(ResponseEntity.status(HttpStatus.NOT_FOUND).build());
+
+    }
+    //delete
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @DeleteMapping("/id")
+    public void delete(@PathVariable Long id) {
+        Optional<Produto> produto = produtoRepository.findById(id);
+            if (produto.isEmpty())
+                throw new ResponseStatusException(HttpStatus.NOT_FOUND);
+            produtoRepository.deleteById(id);
+    }
 
     //buscar por valores menores que (peso, volume, valor)
     //buscar por valores maiores que (peso, volume, valor)
 
     //prioridades
-    //buscar por quantidade
-    //retorna produto por id
-    //post
-    //put
-    //delete
+
+
+
+
+
 }

@@ -13,4 +13,6 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 
     public List<Produto> findAllByPeso(@Param("peso") double peso);
     public List<Produto> findAllByVolume(@Param("volume") double volume);
+
+    public List<Produto> findAllByQuantidade(@Param("quantidade") int quantidade);
 }
