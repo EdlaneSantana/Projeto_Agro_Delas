@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Null;
 
 @Entity
@@ -24,10 +25,10 @@ public class Produto {
     @Nullable
     private int volume;
 
-    @NotBlank(message = "O Atributo quantidade é obrigatório")
+    @NotNull(message = "O Atributo quantidade é obrigatório")
     private int quantidade;
 
-    @NotBlank(message = "O Atributo valor é obrigatório")
+    @NotNull(message = "O Atributo valor é obrigatório")
     private double valor;
 
     @ManyToOne
