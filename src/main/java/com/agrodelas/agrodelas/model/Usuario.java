@@ -22,10 +22,10 @@ public class Usuario {
     @NotBlank(message = "O atributo nome é obrigatório")
     private String nome;
 
-    @Nullable//(message = "O atributo CPF ou CNPJ obrigatório")
+
     private String cpf;
 
-    @Nullable//(message = "O atributo CPF ou CNPJ obrigatório")
+
     private String cnpj;
 
     @NotBlank(message = "O atributo e-mail é obrigatório")

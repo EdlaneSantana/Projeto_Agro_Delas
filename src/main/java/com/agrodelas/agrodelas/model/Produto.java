@@ -3,7 +3,6 @@ package com.agrodelas.agrodelas.model;
 
 import com.agrodelas.agrodelas.model.Categoria;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 
@@ -18,10 +17,10 @@ public class Produto {
     @NotBlank(message = "O Atributo Nome é obrigatório")
     private String nome;
 
-    @Nullable
+
     private double peso;
 
-    @Nullable
+
     private int volume;
 
     @NotBlank(message = "O Atributo quantidade é obrigatório")
@@ -33,6 +32,10 @@ public class Produto {
     @ManyToOne
     @JsonIgnoreProperties("produto")
     private Categoria categoria;
+
+    @ManyToOne
+    @JsonIgnoreProperties("produto")
+    private Usuario usuario;
 
     public Long getId() {
         return id;
