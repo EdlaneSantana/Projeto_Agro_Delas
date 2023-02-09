@@ -1,4 +1,4 @@
-package com.agrodelas.agrodelas.controller;
+package com.agrodelas.agrodelas.model;
 
 
 import com.agrodelas.agrodelas.model.Categoria;
@@ -30,6 +30,9 @@ public class Produto {
     @NotBlank(message = "O Atributo valor é obrigatório")
     private double valor;
 
+    @ManyToOne
+    @JsonIgnoreProperties("produto")
+    private Categoria categoria;
 
     public Long getId() {
         return id;
