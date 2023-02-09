@@ -1,13 +1,13 @@
 package com.agrodelas.agrodelas.model;
 
-import com.agrodelas.agrodelas.controller.Produto;
+import com.agrodelas.agrodelas.model.Produto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import org.springframework.lang.Nullable;
+
 
 import java.util.List;
 
@@ -22,10 +22,10 @@ public class Usuario {
     @NotBlank(message = "O atributo nome é obrigatório")
     private String nome;
 
-    @Nullable(message = "O atributo CPF ou CNPJ obrigatório")
+
     private String cpf;
 
-    @Nullable(message = "O atributo CPF ou CNPJ obrigatório")
+
     private String cnpj;
 
     @NotBlank(message = "O atributo e-mail é obrigatório")
