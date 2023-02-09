@@ -1,12 +1,11 @@
-package com.agrodelas.agrodelas.model;
+package com.agrodelas.agrodelas.controller;
 
 
+import com.agrodelas.agrodelas.model.Categoria;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Null;
 
 @Entity
 @Table(name = "tb_produto")
@@ -25,15 +24,12 @@ public class Produto {
     @Nullable
     private int volume;
 
-    @NotNull(message = "O Atributo quantidade é obrigatório")
+    @NotBlank(message = "O Atributo quantidade é obrigatório")
     private int quantidade;
 
-    @NotNull(message = "O Atributo valor é obrigatório")
+    @NotBlank(message = "O Atributo valor é obrigatório")
     private double valor;
 
-    @ManyToOne
-    @JsonIgnoreProperties("produto")
-    private Categoria categoria;
 
     public Long getId() {
         return id;

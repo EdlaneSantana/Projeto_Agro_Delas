@@ -1,6 +1,6 @@
 package com.agrodelas.agrodelas.repository;
 
-import com.agrodelas.agrodelas.model.Produto;
+import com.agrodelas.agrodelas.controller.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 

@@ -1,5 +1,6 @@
 package com.agrodelas.agrodelas.model;
 
+import com.agrodelas.agrodelas.controller.Produto;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
