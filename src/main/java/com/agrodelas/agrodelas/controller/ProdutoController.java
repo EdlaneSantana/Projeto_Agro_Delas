@@ -25,7 +25,7 @@ public class ProdutoController {
     private CategoriaRepository categoriaRepository;
 
     //retorna todos os produtos
-    @GetMapping
+    @GetMapping("/listar")
     public ResponseEntity<List<Produto>> getAll() {
         return ResponseEntity.ok(produtoRepository.findAll());
     }
