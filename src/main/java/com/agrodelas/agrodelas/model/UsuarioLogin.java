@@ -29,6 +29,8 @@ public class UsuarioLogin {
 
     private int celular;
 
+    private String token;
+
     public Long getId() {
         return id;
     }
@@ -115,5 +117,13 @@ public class UsuarioLogin {
 
     public void setCelular(int celular) {
         this.celular = celular;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
     }
 }
