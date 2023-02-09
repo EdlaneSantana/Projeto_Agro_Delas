@@ -1,5 +1,6 @@
 package com.agrodelas.agrodelas.controller;
 
+import com.agrodelas.agrodelas.model.Produto;
 import com.agrodelas.agrodelas.repository.CategoriaRepository;
 import com.agrodelas.agrodelas.repository.ProdutoRepository;
 import jakarta.validation.Valid;
