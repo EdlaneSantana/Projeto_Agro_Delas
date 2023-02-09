@@ -16,7 +16,8 @@ public class Produto {
 
     @NotBlank(message = "O Atributo Nome é obrigatório")
     private String nome;
-
+    //dffnfakfakfankfankfkafnafknafnkafafnafaf
+    //adijdjidaidaifhaffafaf
 
     private double peso;
 
