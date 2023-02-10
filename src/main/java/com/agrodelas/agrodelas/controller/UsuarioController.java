@@ -1,6 +1,7 @@
 package com.agrodelas.agrodelas.controller;
 
 
+
 import com.agrodelas.agrodelas.Service.UsuarioService;
 import com.agrodelas.agrodelas.model.Usuario;
 import com.agrodelas.agrodelas.model.UsuarioLogin;
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +33,7 @@ public class UsuarioController {
     public ResponseEntity <List<Usuario>> getAll(){
         return ResponseEntity.ok(usuarioRepository.findAll());
     }
+
     @GetMapping("/{id}")
     public ResponseEntity<Usuario> getId (@PathVariable Long id){
         return usuarioRepository.findById(id)

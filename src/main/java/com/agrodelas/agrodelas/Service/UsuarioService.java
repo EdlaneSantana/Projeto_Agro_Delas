@@ -1,6 +1,5 @@
 package com.agrodelas.agrodelas.Service;
 
-
 import com.agrodelas.agrodelas.model.Usuario;
 import com.agrodelas.agrodelas.model.UsuarioLogin;
 import com.agrodelas.agrodelas.repository.UsuarioRepository;
@@ -37,7 +36,7 @@ public class UsuarioService {
             Optional<Usuario> buscaUsuario = usuarioRepository.findByEmail( usuario.getEmail() );
 
             if ((buscaUsuario.isPresent()) && ( buscaUsuario.get().getId() != usuario.getId()))
-            throw new ResponseStatusException( HttpStatus.BAD_REQUEST, "Usuário já existe", null );
+                throw new ResponseStatusException( HttpStatus.BAD_REQUEST, "Usuário já existe", null );
 
             return Optional.ofNullable( usuarioRepository.save(usuario) );
 
