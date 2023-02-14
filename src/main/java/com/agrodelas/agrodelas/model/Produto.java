@@ -5,6 +5,7 @@ import com.agrodelas.agrodelas.model.Categoria;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "tb_produto")
@@ -23,10 +24,10 @@ public class Produto {
 
     private int volume;
 
-    @NotBlank(message = "O Atributo quantidade é obrigatório")
+    @NotNull(message = "O Atributo quantidade é obrigatório")
     private int quantidade;
 
-    @NotBlank(message = "O Atributo valor é obrigatório")
+    @NotNull(message = "O Atributo valor é obrigatório")
     private double valor;
 
     @ManyToOne
