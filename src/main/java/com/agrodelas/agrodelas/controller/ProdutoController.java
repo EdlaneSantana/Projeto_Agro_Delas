@@ -73,7 +73,7 @@ public class ProdutoController {
         if(categoriaRepository.existsById(produto.getCategoria().getId()))
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(produtoRepository.save(produto));
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
     //put
     @PutMapping
@@ -98,7 +98,7 @@ public class ProdutoController {
             produtoRepository.deleteById(id);
     }
 
-    //buscar por valores menores que (peso, volume, valor)
+    //todo: buscar por valores menores que (peso, volume, valor)
     //buscar por valores maiores que (peso, volume, valor)
 
     //prioridades
