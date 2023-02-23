@@ -31,13 +31,14 @@ public class UsuarioService {
 
     public Optional<Usuario> atualizarUsuario(Usuario usuario) {
 
-        if(usuarioRepository.findByEmail( usuario.getEmail()).isPresent() ) {
+        if(usuarioRepository.findById( usuario.getId()).isPresent() ) {
 
             Optional<Usuario> buscaUsuario = usuarioRepository.findByEmail( usuario.getEmail() );
 
             if ((buscaUsuario.isPresent()) && ( buscaUsuario.get().getId() != usuario.getId()))
                 throw new ResponseStatusException( HttpStatus.BAD_REQUEST, "Usuário já existe", null );
 
+            usuario.setSenha(criptografarSenha(usuario.getSenha()));
             return Optional.ofNullable( usuarioRepository.save(usuario) );
 
         }
